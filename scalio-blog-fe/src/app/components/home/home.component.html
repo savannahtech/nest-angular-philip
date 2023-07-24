@@ -1,0 +1,18 @@
+<div class="container justify-content-center" style="margin-top: 20vh; margin-bottom: auto; background-color:#ffffff83;">
+  <form #postForm="ngForm">
+    <div class="row pb-5">
+      <div class="col-lg-6 col-md-8 mx-auto text-center">
+        <h1 class="mb-3">Scalio Blog</h1>
+        <span class="form-outline mb-3" style="max-width: 300px !important;">
+          <input ngModel type="search" name="searchId" id="form1" (input)="numbersOnlyValidator($event)" (keyup.enter)="postForm.valid && viewPost(postForm.value)" class="form-control" required placeholder="Enter Post ID to view" />
+        </span>
+      </div>
+    </div>
+
+    <div class="clearfix text-center mx-auto">
+      <button [disabled]="!postForm.valid" (click)="viewPost(postForm.value);" class="classic-btn btn pointer" style="background-color: #00657b; color: white;">
+        <i *ngIf="loading" class="fa fa-spinner fa-spin ml-1 mr-1"></i>View post
+      </button>
+    </div>
+  </form>
+</div>
